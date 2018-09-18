@@ -1,0 +1,26 @@
+Kong Response Size Limiting Plugin
+Copyright 2018 Optum
+
+
+Project Description:
+====================
+
+The Kong Response Size Limiting Plugin is a small, lua-based, OpenResty Nginx module which rejects API Provider responses that come back too large to the gateway. The purpose of this plugin is to prevent bogging down the API Gateway with transactions that should not be served from a gateway to begin with(massive transfers in the high MB to GB range).
+
+
+
+Authors:
+Jeremy Justus, Ross Sbriscia © Optum 2018
+
+
+Added Files:
+============
+
+
+
+
+
+
+
+Modified Files:
+===============

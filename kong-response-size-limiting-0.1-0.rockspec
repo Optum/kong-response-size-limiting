@@ -6,11 +6,11 @@ source = {
 description = {
    summary = "This plugin will protect the client from consuming API responses that are deemed to large within the Kong API Gateway.",
    detailed = [[
-   This plugin will protect the client from consuming API responses that are deemed to large within the Kong API Gateway.
+   This plugin will protect the client from consuming API responses that are deemed too large within the Kong API Gateway.
    
    1. Plugin enables Kong users to specify the size in MB that they will allow for API response sizes.
    
-   If transaction response is deemed to large the Gateway will throw an HTTP Status of 413 and a response body of "Response size limit exceeded"
+   If transaction response is deemed too large the Gateway will throw an HTTP Status of 413 and a response body of "Response size limit exceeded"
    ]],
    homepage = "https://github.com/Optum/kong-response-size-limiting",
    license = "Apache 2.0"

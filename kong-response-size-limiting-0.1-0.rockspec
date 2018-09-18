@@ -4,7 +4,7 @@ source = {
    url = "git+https://github.com/Optum/kong-response-size-limiting.git"
 }
 description = {
-   summary = "This plugin will protect the client from consuming API responses that are deemed to large within the Kong API Gateway.",
+   summary = "This plugin will protect the client from consuming API responses that are deemed too large within the Kong API Gateway.",
    detailed = [[
    This plugin will protect the client from consuming API responses that are deemed too large within the Kong API Gateway.
    

@@ -19,7 +19,7 @@ dependencies = {}
 build = {
    type = "builtin",
    modules = {
-      ["kong.plugins.kong-spec-expose.handler"]  = "src/handler.lua",
-      ["kong.plugins.kong-spec-expose.schema"]= "src/schema.lua"
+      ["kong.plugins.kong-response-size-limiting"]  = "src/handler.lua",
+      ["kong.plugins.kong-response-size-limiting"]= "src/schema.lua"
    }
 }

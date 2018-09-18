@@ -29,6 +29,6 @@ This plugin currently accomplishes limiting by validating the Content-Length hea
 [rsbrisci](https://github.com/rsbrisci)
 
 Special thanks to [thibaultcha](https://github.com/thibaultcha) and [james-callahan](https://github.com/james-callahan) with their
-suggestions and guidance!
+suggestions!
 
 Feel free to open issues, or refer to our [Contribution Guidelines](https://github.com/Optum/kong-response-size-limiting/blob/master/CONTRIBUTING.md) if you have any questions.

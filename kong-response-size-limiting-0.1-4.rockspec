@@ -1,5 +1,5 @@
 package = "kong-response-size-limiting"
-version = "0.1-3"
+version = "0.1-4"
 source = {
    url = "git+https://github.com/Optum/kong-response-size-limiting.git"
 }

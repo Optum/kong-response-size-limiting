@@ -32,7 +32,7 @@ end
 
 function KongResponseSizeLimitingHandler:body_filter(conf)
   KongResponseSizeLimitingHandler.super.body_filter(self)
-  if kong.response.get_status() == 413 and kong.ctx.plugin.limited then
+  if kong.ctx.plugin.limited then
     ngx.arg[1] = str
     ngx.arg[2] = true  
   end

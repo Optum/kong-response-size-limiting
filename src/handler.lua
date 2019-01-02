@@ -1,7 +1,6 @@
 local BasePlugin = require "kong.plugins.base_plugin"
 local tonumber = tonumber
 local MB = 2^20
-
 local str = "Response size limit exceeded"
 
 local KongResponseSizeLimitingHandler = BasePlugin:extend()

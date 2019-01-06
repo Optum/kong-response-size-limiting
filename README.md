@@ -7,7 +7,7 @@ This plugin will protect the client from consuming API responses that are deemed
 If transaction response is deemed too large the Gateway will throw an HTTP Status of 413 and a response body of "Response size limit exceeded" 
 
 ## Supported Kong Releases
-Kong >= 0.14.x 
+Kong >= 1.0 
 
 ## Installation
 Recommended:

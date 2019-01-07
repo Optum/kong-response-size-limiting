@@ -15,6 +15,9 @@ local function check_size(length, allowed_size)
   local allowed_bytes_size = allowed_size * MB
   if length > allowed_bytes_size then
       ngx.ctx.responsetoolarge = true
+      kong.response.set_status(413)
+      kong.response.set_header("Content-Length", #responsestr)
+      kong.response.set_header("Content-Type", "application/json")
   end
 end
 
@@ -30,10 +33,7 @@ end
 
 function KongResponseSizeLimitingHandler:body_filter(conf)
   KongResponseSizeLimitingHandler.super.body_filter(self)
-  if ngx.ctx.responsetoolarge then
-    kong.response.set_status(413)
-    kong.response.set_header("Content-Length", #responsestr)
-    kong.response.set_header("Content-Type", "application/json")		
+  if ngx.ctx.responsetoolarge then		
     ngx.arg[1] = responsestr
     ngx.arg[2] = true
   end

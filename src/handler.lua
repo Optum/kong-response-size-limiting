@@ -16,9 +16,6 @@ local function check_size(length, allowed_size)
   local allowed_bytes_size = allowed_size * MB
   if length > allowed_bytes_size then
       sizetrigger = true
-      --kong.response.set_status(413)
-      --kong.response.set_header("Content-Length", #responsestr)
-      --kong.response.set_header("Content-Type", "application/json")
       ngx.status = 413
       ngx.header["Content-Length"] = #responsestr
       ngx.header["Content-Type"] = "application/json"

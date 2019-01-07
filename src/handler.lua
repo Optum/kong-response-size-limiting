@@ -8,7 +8,7 @@ local KongResponseSizeLimitingHandler = BasePlugin:extend()
 KongResponseSizeLimitingHandler.PRIORITY = 802
 
 function KongResponseSizeLimitingHandler:new()
-	KongResponseSizeLimitingHandler.super.new(self, "kong-response-size-limiting")
+  KongResponseSizeLimitingHandler.super.new(self, "kong-response-size-limiting")
 end
 
 local function check_size(length, allowed_size)
@@ -20,7 +20,7 @@ end
 
 function KongResponseSizeLimitingHandler:header_filter(conf)
   KongResponseSizeLimitingHandler.super.header_filter(self)
-  local cl = kong.service.response.get_header("content-length")
+  local cl = ngx.header.content_length
   if cl and tonumber(cl) then
     check_size(tonumber(cl), conf.allowed_payload_size)
   else

@@ -17,15 +17,15 @@ local function check_size(length, allowed_size)
   end
 end
 
-function KongResponseSizeLimitingHandler:header_filter(conf)
-  KongResponseSizeLimitingHandler.super.header_filter(self)
-  local cl = kong.service.response.get_header("content-length")
-  if cl and tonumber(cl) then
-    check_size(tonumber(cl), conf.allowed_payload_size)
-  else
-    ngx.log(ngx.DEBUG, "Upstream response lacks Content-Length header!")
-  end
-end
+--function KongResponseSizeLimitingHandler:header_filter(conf)
+--  KongResponseSizeLimitingHandler.super.header_filter(self)
+--  local cl = kong.service.response.get_header("content-length")
+--  if cl and tonumber(cl) then
+--    check_size(tonumber(cl), conf.allowed_payload_size)
+--  else
+--    ngx.log(ngx.DEBUG, "Upstream response lacks Content-Length header!")
+--  end
+--end
 
 --function KongResponseSizeLimitingHandler:body_filter(conf)
 --  KongResponseSizeLimitingHandler.super.body_filter(self)
@@ -33,5 +33,15 @@ end
 --     return kong.response.exit(413, "Response size limit exceeded")
 --  end
 --end
+
+function KongResponseSizeLimitingHandler:body_filter(conf)
+  KongResponseSizeLimitingHandler.super.body_filter(self)
+  local cl = kong.service.response.get_header("content-length")
+  if cl and tonumber(cl) then
+    check_size(tonumber(cl), conf.allowed_payload_size)
+  else
+    ngx.log(ngx.DEBUG, "Upstream response lacks Content-Length header!")
+  end
+end
 
 return KongResponseSizeLimitingHandler

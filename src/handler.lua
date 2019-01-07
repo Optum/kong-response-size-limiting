@@ -13,8 +13,8 @@ local function check_size(length, allowed_size)
   local allowed_bytes_size = allowed_size * MB
   if length > allowed_bytes_size then
       --kong.ctx.plugin.limited = true 
-      ngx.header["Content-Type"] = "application/json"
-      ngx.say("{ \"message\": \"Response size limit exceeded\"}")
+      --ngx.header["Content-Type"] = "application/json"
+      --ngx.say("{ \"message\": \"Response size limit exceeded\"}")
       ngx.exit(413)
   end
 end

@@ -12,7 +12,8 @@ end
 local function check_size(length, allowed_size)
   local allowed_bytes_size = allowed_size * MB
   if length > allowed_bytes_size then
-      kong.ctx.plugin.limited = true
+      --kong.ctx.plugin.limited = true
+      return kong.response.exit(413, "Response size limit exceeded")
   end
 end
 
@@ -26,11 +27,11 @@ function KongResponseSizeLimitingHandler:header_filter(conf)
   end
 end
 
-function KongResponseSizeLimitingHandler:body_filter(conf)
-  KongResponseSizeLimitingHandler.super.body_filter(self)
-  if kong.ctx.plugin.limited then
-     return kong.response.exit(413, "Response size limit exceeded")
-  end
-end
+--function KongResponseSizeLimitingHandler:body_filter(conf)
+--  KongResponseSizeLimitingHandler.super.body_filter(self)
+--  if kong.ctx.plugin.limited then
+--     return kong.response.exit(413, "Response size limit exceeded")
+--  end
+--end
 
 return KongResponseSizeLimitingHandler

@@ -22,7 +22,7 @@ end
 
 function KongResponseSizeLimitingHandler:header_filter(conf)
   KongResponseSizeLimitingHandler.super.header_filter(self)
-  local cl = ngx.header.content_length
+  local cl = ngx.var.upstream_http_content_length
   if cl and tonumber(cl) then
     check_size(tonumber(cl), conf.allowed_payload_size)
   else

@@ -4,7 +4,7 @@ local responsestr = "{\"message\": \"Response size limit exceeded\"}"
 
 local KongResponseSizeLimitingHandler = {}
 KongResponseSizeLimitingHandler.PRIORITY = 802
-KongResponseSizeLimitingHandler.VERSION = 0.3
+KongResponseSizeLimitingHandler.VERSION = "2.0.0"
 
 local function check_size(length, allowed_size)
   local allowed_bytes_size = allowed_size * MB

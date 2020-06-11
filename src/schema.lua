@@ -8,5 +8,6 @@ return {
         type = "record",
         fields = {
           { allowed_payload_size = { type = "number", default = 128 }, },
-  }
-}
+          }, }, },
+    },
+ }
